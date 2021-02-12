@@ -2,16 +2,16 @@ node {
     printMessage("Pipeline Start")
 
     stage("Fetch Source Code") {
-        git ""
+        git "https://github.com/GontiSruthi/python-jenkins-pipeline"
     }
 
-    dir('Lesson5/ActivityA') {
+    dir('ActivityA') {
         stage("Install Requirements") {
-            sh 'make install'
+            bat 'make install'
         }
 
         stage("Run Tests") {
-            sh 'make jenkins_test'
+            bat 'make jenkins_test'
         }
 
         stage("Deploy") {
